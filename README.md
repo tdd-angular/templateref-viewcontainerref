@@ -107,6 +107,8 @@ export abstract class EmbeddedViewRef<C> extends ViewRef {
 
 ## Interpolate template #variable
 
+- [ViewChild angular-dom-manipulation-techniques-using-viewcontainerref](https://indepth.dev/exploring-angular-dom-manipulation-techniques-using-viewcontainerref/#-viewchild)
+
 ```html
     <!-- view1 will be interpolated by Angular render engine -->
     <button #view1>Simple Button {{checkView(view1, "Native HTML Element")}}</button>
@@ -132,14 +134,13 @@ export function ɵɵreference<T>(index: number) {
 ```
 
 ## Sources
-- [ng_template_outlet.ts](https://github.com/angular/angular/blob/master/packages/common/src/directives/ng_template_outlet.ts)
+- [ElementRef, TemplateRef, ViewRef, ComponentRef and ViewContainerRef](https://gist.github.com/rajaramtt/f2bf4bb420ced6198334622d32695554)- [ng_template_outlet.ts](https://github.com/angular/angular/blob/master/packages/common/src/directives/ng_template_outlet.ts)
 - [compiler/src/template_parser/template_parser](https://github.com/angular/angular/blob/master/packages/compiler/src/template_parser/template_parser.ts#L369​)
 - [core/src/render3/STATUS.md#______refs​](https://github.com/angular/angular/blob/master/packages/core/src/render3/STATUS.md#______refs​)
 - [Properly insert views into ViewContainerRef injected](https://github.com/angular/angular/commit/49c9f782ab20ca0da90927ee52a5bf0fe3225344#diff-6148157ee1f259b9c8461f23356f0b85R549​)
 - [exploring-angular-dom-manipulation-techniques-using-viewcontainerref](https://indepth.dev/exploring-angular-dom-manipulation-techniques-using-viewcontainerref/)
-- [ElementRef, TemplateRef, ViewRef, ComponentRef and ViewContainerRef](https://gist.github.com/rajaramtt/f2bf4bb420ced6198334622d32695554)
 - [dynamic-component-loader](https://angular.io/guide/dynamic-component-loader)
 - [angular-ngfor-template-element](https://ultimatecourses.com/blog/angular-ngfor-template-element) Google
 - [benefit-of-using-ng-container-vs-template](https://stackoverflow.com/questions/54029503/benefit-of-using-ng-container-vs-template)
-- [ng-template or ng-container template](https://www.google.com/search?q=ng-template+or+ng-container+template&oq=ng-template+or+ng-container+template&aqs=chrome..69i57j0l3j69i60.7385j0j4&client=ms-android-xiaomi-rev2&sourceid=chrome-mobile&ie=UTF-8)
 - [Angular ng-template, ng-container and ngTemplateOutlet](https://blog.angular-university.io/angular-ng-template-ng-container-ngtemplateoutlet/)
+- [angular-ng-content](https://blog.angular-university.io/angular-ng-content/)
