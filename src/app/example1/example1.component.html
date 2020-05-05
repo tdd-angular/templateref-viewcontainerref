@@ -1,0 +1,31 @@
+<pre>
+    >   Native HTML Element
+    <button #view1>Simple Button {{checkView(view1, "Native HTML Element")}}</button>
+
+    >   Component
+    <app-simple-button #view2>{{checkView(view2, "Component")}}</app-simple-button>
+
+    >   Component with NgIf (structural directives)
+    <app-simple-button #view3 *ngIf="true">{{checkView(view3, "Component with NgIf")}}</app-simple-button>
+
+    >   Template
+    <template #view4>
+        <button>Simple Button</button>
+        {{checkView(view4, "Template")}}
+    </template>
+
+    >   NgTemplate
+    <ng-template #view5>
+        <button>Simple Button</button>
+        {{checkView(view5, "NgTemplate")}}
+    </ng-template>
+
+    >   NgContainer
+    <ng-container #view6>
+        <button>Simple Button</button>
+        {{checkView(view6, "NgContainer")}}
+    </ng-container>
+
+    >   NgContent
+    <ng-content #view7></ng-content>
+</pre>
