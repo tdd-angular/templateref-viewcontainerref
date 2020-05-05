@@ -116,7 +116,7 @@ export abstract class EmbeddedViewRef<C> extends ViewRef {
 
 ```typescript
 export function ɵɵreference<T>(index: number) {
-  const contextLView = getContextLView();
+  const contextLView = getContextLView(); // State of the current view being processed. An array of nodes (text, element, container, etc), pipes, their bindings, and any local variables that need to be stored between invocations.
   return load<T>(contextLView, index);
 }
 ```
