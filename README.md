@@ -1,10 +1,10 @@
 # TemplateRef and ViewContainerRef
 
-- My story create a factory of something to show the right purpose.​
-
-*Who / What / Where / When / How / Why*
+> Everything start with a story... Six Ws (*Who / What / Where / When / How / Why*)
 
 ![Angular template schema](./assets/angular_template.svg)
+
+# Parser > @angular/compiler/template_parser
 
 ## \<template> *The Content Template element* [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template)
 The HTML Content Template (<template>) element is a mechanism for holding HTML that is not to be rendered immediately when a page is loaded but may be instantiated subsequently during runtime using JavaScript.
@@ -30,6 +30,8 @@ Angular’s **\<ng-container>** element provides us an element that we can attac
 
 There is another major use case for the ng-container directive: it can also provide a placeholder for injecting a template dynamically into the page (see: NgTemplateOutlet and NgComponentOutlet directive).
 
+- [Angular's test for \<ng-container> element](https://github.com/angular/angular/commit/49c9f782ab20ca0da90927ee52a5bf0fe3225344#diff-6148157ee1f259b9c8461f23356f0b85R550)
+
 ## \<ng-content>​
 Angular’s **\<ng-content>** tag is a placeholder for the external content. It tells Angular where to insert that content.
 
@@ -45,24 +47,15 @@ Angular’s **\<ng-content>** tag is a placeholder for the external content. It 
     <span>My custom external content.</span>
 </my-parent>
 ```
-
-# Sources
-- [dynamic-component-loader](https://angular.io/guide/dynamic-component-loader)
-- [angular-ngfor-template-element](https://ultimatecourses.com/blog/angular-ngfor-template-element) Google
-- [benefit-of-using-ng-container-vs-template](https://stackoverflow.com/questions/54029503/benefit-of-using-ng-container-vs-template)
-- [ng-template or ng-container template](https://www.google.com/search?q=ng-template+or+ng-container+template&oq=ng-template+or+ng-container+template&aqs=chrome..69i57j0l3j69i60.7385j0j4&client=ms-android-xiaomi-rev2&sourceid=chrome-mobile&ie=UTF-8)
-
-## Angular ng-template, ng-container and ngTemplateOutlet - The Complete Guide To Angular Templates (Last Updated: 24 APRIL 2020 )
-- [angular-ng-template-ng-container-ngtemplateoutlet](https://blog.angular-university.io/angular-ng-template-ng-container-ngtemplateoutlet/)
+# [Render References](https://github.com/angular/angular/blob/master/packages/core/src/render3/STATUS.md#______refs)
 
 ## API > @angular/common
 
-NgTemplateOutlet DIRECTIVE (https://angular.io/api/common/NgTemplateOutlet)
+NgTemplateOutlet *DIRECTIVE* ([link](https://angular.io/api/common/NgTemplateOutlet))
 > Inserts an embedded view from a prepared TemplateRef.
 
-NgComponentOutlet DIRECTIVE (https://angular.io/api/common/NgComponentOutlet)
+NgComponentOutlet *DIRECTIVE* ([link](https://angular.io/api/common/NgComponentOutlet))
 > Instantiates a single Component type and inserts its Host View into current View. NgComponentOutlet provides a declarative approach for dynamic component creation.
-
 
 Template Context (external parameters) 
 
@@ -71,8 +64,6 @@ Template Context (external parameters)
    *ngTemplateOutlet="myTemplate;context:{a: true}">
 </ng-container>
 ```
-
-# [Render References](https://github.com/angular/angular/blob/master/packages/core/src/render3/STATUS.md#______refs)
 
 ## API > @angular/core
 
@@ -133,19 +124,22 @@ export function ɵɵreference<T>(index: number) {
 ```javascript
     const _r0 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](3);
     const _r1 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](7);
-    const _r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](13);
-    const _r6 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](23);
+    ...
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("Simple Button ", ctx.checkView(_r0, "Native HTML Element"), "");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.checkView(_r1, "Component"));
 ```
 
-
 ## Sources
 - [ng_template_outlet.ts](https://github.com/angular/angular/blob/master/packages/common/src/directives/ng_template_outlet.ts)
 - [compiler/src/template_parser/template_parser](https://github.com/angular/angular/blob/master/packages/compiler/src/template_parser/template_parser.ts#L369​)
-- https://github.com/angular/angular/blob/master/packages/core/src/render3/STATUS.md#______refs​
+- [core/src/render3/STATUS.md#______refs​](https://github.com/angular/angular/blob/master/packages/core/src/render3/STATUS.md#______refs​)
 - [Properly insert views into ViewContainerRef injected](https://github.com/angular/angular/commit/49c9f782ab20ca0da90927ee52a5bf0fe3225344#diff-6148157ee1f259b9c8461f23356f0b85R549​)
 - [exploring-angular-dom-manipulation-techniques-using-viewcontainerref](https://indepth.dev/exploring-angular-dom-manipulation-techniques-using-viewcontainerref/)
 - [ElementRef, TemplateRef, ViewRef, ComponentRef and ViewContainerRef](https://gist.github.com/rajaramtt/f2bf4bb420ced6198334622d32695554)
+- [dynamic-component-loader](https://angular.io/guide/dynamic-component-loader)
+- [angular-ngfor-template-element](https://ultimatecourses.com/blog/angular-ngfor-template-element) Google
+- [benefit-of-using-ng-container-vs-template](https://stackoverflow.com/questions/54029503/benefit-of-using-ng-container-vs-template)
+- [ng-template or ng-container template](https://www.google.com/search?q=ng-template+or+ng-container+template&oq=ng-template+or+ng-container+template&aqs=chrome..69i57j0l3j69i60.7385j0j4&client=ms-android-xiaomi-rev2&sourceid=chrome-mobile&ie=UTF-8)
+- [Angular ng-template, ng-container and ngTemplateOutlet](https://blog.angular-university.io/angular-ng-template-ng-container-ngtemplateoutlet/)
