@@ -1,27 +1,72 @@
-import { Component, OnInit, AfterViewInit, ElementRef, ViewContainerRef, ComponentRef } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ElementRef, ViewContainerRef, ComponentRef, ComponentFactoryResolver, ViewChild, Injector, TemplateRef, Renderer2 } from '@angular/core';
+import { SimpleButtonComponent } from '@app/example1/simple-button/simple-button.component';
 
 @Component({
   selector: 'app-example3',
   templateUrl: './example3.component.html',
   styleUrls: ['../example1/example1.component.sass']
 })
-export class Example3Component implements OnInit, AfterViewInit {
+export class Example3Component implements AfterViewInit {
   // TemplateRef
-  // @ViewChild('template1', { read: TemplateRef, static: true }) template1: TemplateRef<HTMLButtonElement>;
+  @ViewChild('template1', { read: TemplateRef, static: true }) template1: TemplateRef<ElementRef>;
+
+  @ViewChild('customtemplate', { read: TemplateRef, static: true }) customtemplate: TemplateRef<ElementRef>;
 
   // ViewContainerRef
-  // @ViewChild('viewcontainer1', { read: ViewContainerRef, static: true }) viewcontainer1: ViewContainerRef;
+  @ViewChild('viewcontainer1', { read: ViewContainerRef, static: true }) viewcontainer1: ViewContainerRef;
 
-  constructor(public viewContainerRef: ViewContainerRef, public hostRef: ElementRef, public compRef: ComponentRef<Example3Component>) {
-    console.log('host ElementRef', hostRef);
-    console.log('host ViewContainerRef', viewContainerRef);
-    console.log('host ComponentRef', compRef);
+  constructor(private render: Renderer2, private injector: Injector, public viewContainerRef: ViewContainerRef, public hostRef: ElementRef, public compFactoryResolver: ComponentFactoryResolver) {
+    console.log('#host ElementRef', hostRef);
+    console.log('#host ViewContainerRef', viewContainerRef);
+    console.log('#host compFactoryResolver', this.compFactoryResolver);
   }
 
-  ngOnInit(): void { }
-
   ngAfterViewInit() {
-    // console.log('TemplateRef', this.template1);
-    // console.log('ViewContainerRef', this.viewcontainer1);
+    console.log('TemplateRef', this.template1);
+    console.log('ViewContainerRef', this.viewcontainer1);
+  }
+
+  /**
+   * Manual Template Creation
+   */
+  public CreateTemplate() {
+    // Create and Get EmbeddedViewRef
+    const view = this.template1.createEmbeddedView(null);
+    this.viewcontainer1.insert(view);
+  }
+
+  /**
+   * Automated Template Creation
+   */
+  public CreateTemplate2() {
+    this.viewcontainer1.createEmbeddedView(this.template1);
+  }
+
+  /**
+   * Manual Component Creation
+   */
+  public CreateComponent() {
+    const componentFactory = this.compFactoryResolver.resolveComponentFactory(SimpleButtonComponent);
+
+    // Create and Get ComponentRef
+    const componentRef = componentFactory.create(this.injector);
+
+    // Get ViewRef
+    const view = componentRef.hostView;
+
+    // ViewContainerRef Add View
+    this.viewcontainer1.insert(view);
+  }
+
+  /**
+   *  Automated Component Creation
+   */
+  public CreateComponent2() {
+    const componentFactory = this.compFactoryResolver.resolveComponentFactory(SimpleButtonComponent);
+    this.viewcontainer1.createComponent(componentFactory);
+  }
+
+  public Clear() {
+    this.viewcontainer1.clear();
   }
 }

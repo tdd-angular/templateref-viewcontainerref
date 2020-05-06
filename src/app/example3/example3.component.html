@@ -1,3 +1,25 @@
-<h4>Dynamic contents</h4>
+<pre>
+    <h4>Dynamic contents - Live Coding Example</h4>
 
-// Live Coding Example
+    <!-- Template -->
+    <ng-template #template1>
+        <p>My amazing content !</p>
+    </ng-template>
+
+    <!-- Container -->
+    <span>> My ViewContainerRef</span>
+    <div style="border-color: white; border-style: dotted;">
+        <ng-container #viewcontainer1></ng-container>
+    </div>
+
+    <!-- Template -->
+    <button (click)="CreateTemplate()">Create Template n°1</button>
+    <button (click)="CreateTemplate2()">Create Template n°2</button>
+
+    <!-- Component -->
+    <button (click)="CreateComponent()">Create Component n°1</button>
+    <button (click)="CreateComponent2()">Create Component n°2</button>
+
+    <!-- Clear -->
+    <button (click)="Clear()">Clear</button>
+</pre>
