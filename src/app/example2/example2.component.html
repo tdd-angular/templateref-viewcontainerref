@@ -39,6 +39,9 @@
 
     > Use Case n° 5.2 (use a container+template)
     <ng-container *ngTemplateOutlet="amazingTemplate"></ng-container>
+    
+    > Use Case n° 5.3 (use a container+component)
+    <ng-container *ngComponentOutlet="SimpleButtonComponent"></ng-container>
 
     <ng-template #amazingTemplate>
         <div *ngFor="let item of ['content']">

@@ -138,6 +138,12 @@ export function ɵɵreference<T>(index: number) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.checkView(_r1, "Component"));
 ```
 
+## EntryComponents
+Specifies a list of components that should be compiled when this module is defined. For each component listed here, Angular will create a ComponentFactory and store it in the ComponentFactoryResolver.
+
+> In Angular 9 (Ivy) EntryComponent has been deprecated and there is no need to put dynamic components to it because Factory is created in a static field on the component itself.
+- [EntryComponent - angular/angular/issues/33715](https://github.com/angular/angular/issues/33715#issuecomment-616017433 )
+
 ## Sources
 - [ElementRef, TemplateRef, ViewRef, ComponentRef and ViewContainerRef](https://gist.github.com/rajaramtt/f2bf4bb420ced6198334622d32695554)- [ng_template_outlet.ts](https://github.com/angular/angular/blob/master/packages/common/src/directives/ng_template_outlet.ts)
 - [compiler/src/template_parser/template_parser](https://github.com/angular/angular/blob/master/packages/compiler/src/template_parser/template_parser.ts#L369​)
@@ -149,3 +155,4 @@ export function ɵɵreference<T>(index: number) {
 - [benefit-of-using-ng-container-vs-template](https://stackoverflow.com/questions/54029503/benefit-of-using-ng-container-vs-template)
 - [Angular ng-template, ng-container and ngTemplateOutlet](https://blog.angular-university.io/angular-ng-template-ng-container-ngtemplateoutlet/)
 - [angular-ng-content](https://blog.angular-university.io/angular-ng-content/)
+- [Module EntryComponents](https://angular.io/guide/ngmodule-faq#when-do-i-add-components-to-entrycomponents)
