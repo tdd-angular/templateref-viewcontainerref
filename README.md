@@ -93,10 +93,15 @@ ChangeDetectionRef (https://angular.io/api/core/ChangeDetectorRef)
 ViewRef​ (https://angular.io/api/core/ViewRef)
 > Represents an Angular view, specifically the host view that is defined by a component. Also serves as the base class that adds destroy methods for embedded views.
 
-EmbededViewRef​ (https://angular.io/api/core/EmbeddedViewRef)
+EmbeddedViewRef (https://angular.io/api/core/EmbeddedViewRef)
 > Represents an Angular view in a view container. An embedded view can be referenced from a component other than the hosting component whose template defines it, or it can be defined independently by a TemplateRef.
 
 - [view_ref](https://github.com/angular/angular/blob/master/packages/core/src/linker/view_ref.ts)
+
+ComponentRef (https://angular.io/api/core/ComponentRef)
+> Represents a component created by a ComponentFactory. Provides access to the component instance and related objects, and provides the means of destroying the instance.
+
+- [component_factory](https://github.com/angular/angular/blob/master/packages/core/src/linker/component_factory.ts#L24)
 
 ```typescript
 export abstract class ViewRef extends ChangeDetectorRef {

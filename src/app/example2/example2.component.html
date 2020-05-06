@@ -1,0 +1,49 @@
+<pre>
+    <h4>Template & Container Use Cases</h4>
+
+    <!-- #region uc1 -->
+    > Use Case n°1
+    <div *ngIf="true">
+        <p>My amazing content !</p>
+    </div>
+    <!-- #endregion uc1 -->
+
+    <!-- #region uc2 -->
+    > Use Case n°2 items ? ngIf
+    <div *ngFor="let item of ['content']">
+        <p>My amazing {{item}} !</p>
+    </div>
+    <!-- #endregion uc2 -->
+
+    <!-- #region uc3 -->
+    > Use Case n° 3 (extra div)
+    <div *ngIf="true">
+        <div *ngFor="let item of ['content']">
+            <p>My amazing {{item}} !</p>
+        </div>
+    </div>
+    <!-- #endregion uc3 -->
+
+    <!-- #region uc4 -->
+    > Use Case n° 4 (use a container)
+    <ng-container *ngIf="true">
+        <div *ngFor="let item of ['content']">
+            <p>My amazing {{item}} !</p>
+        </div>
+    </ng-container>
+    <!-- #endregion uc4 -->
+
+    <!-- #region uc5 -->
+    > Use Case n° 5.1 (use a container+template)
+    <ng-container *ngIf="false; else amazingTemplate">My *ngIf condition content</ng-container>
+
+    > Use Case n° 5.2 (use a container+template)
+    <ng-container *ngTemplateOutlet="amazingTemplate"></ng-container>
+
+    <ng-template #amazingTemplate>
+        <div *ngFor="let item of ['content']">
+            <p>My amazing {{item}} !</p>
+        </div>
+    </ng-template>
+    <!-- #endregion uc5 -->
+</pre>
