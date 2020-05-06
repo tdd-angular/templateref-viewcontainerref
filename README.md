@@ -98,17 +98,17 @@ EmbeddedViewRef (https://angular.io/api/core/EmbeddedViewRef)
 
 - [view_ref](https://github.com/angular/angular/blob/master/packages/core/src/linker/view_ref.ts)
 
-ComponentRef (https://angular.io/api/core/ComponentRef)
-> Represents a component created by a ComponentFactory. Provides access to the component instance and related objects, and provides the means of destroying the instance.
-
-- [component_factory](https://github.com/angular/angular/blob/master/packages/core/src/linker/component_factory.ts#L24)
-
 ```typescript
 export abstract class ViewRef extends ChangeDetectorRef {
     ...
 export abstract class EmbeddedViewRef<C> extends ViewRef {
     ...
 ```
+
+ComponentRef (https://angular.io/api/core/ComponentRef)
+> Represents a component created by a ComponentFactory. Provides access to the component instance and related objects, and provides the means of destroying the instance.
+
+- [component_factory](https://github.com/angular/angular/blob/master/packages/core/src/linker/component_factory.ts#L24)
 
 ## Interpolate template #variable
 
