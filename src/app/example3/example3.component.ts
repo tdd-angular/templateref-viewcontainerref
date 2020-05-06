@@ -11,7 +11,8 @@ export class Example3Component implements AfterViewInit {
   @ViewChild('template1', { read: TemplateRef, static: true }) template1: TemplateRef<ElementRef>;
 
   // ViewContainerRef
-  @ViewChild('viewcontainer1', { read: ViewContainerRef, static: true }) viewcontainer1: ViewContainerRef;
+  @ViewChild('viewcontainer1', { read: ViewContainerRef, static: true }) viewContainer1: ViewContainerRef;
+  @ViewChild('viewcontainer2', { read: ViewContainerRef, static: true }) viewContainer2: ViewContainerRef;
 
   constructor(private injector: Injector, public viewContainerRef: ViewContainerRef, public hostRef: ElementRef, public compFactoryResolver: ComponentFactoryResolver) {
     console.log('#host ElementRef', hostRef);
@@ -21,7 +22,7 @@ export class Example3Component implements AfterViewInit {
 
   ngAfterViewInit() {
     console.log('  > TemplateRef', this.template1);
-    console.log('  > ViewContainerRef', this.viewcontainer1);
+    console.log('  > ViewContainerRef', this.viewContainer1);
   }
 
   /**
@@ -30,14 +31,14 @@ export class Example3Component implements AfterViewInit {
   public CreateTemplate() {
     // Create and Get EmbeddedViewRef
     const view = this.template1.createEmbeddedView(null);
-    this.viewcontainer1.insert(view);
+    this.viewContainer1.insert(view);
   }
 
   /**
    * Automated Template Creation
    */
   public CreateTemplate2() {
-    this.viewcontainer1.createEmbeddedView(this.template1);
+    this.viewContainer1.createEmbeddedView(this.template1);
   }
 
   /**
@@ -53,7 +54,7 @@ export class Example3Component implements AfterViewInit {
     const view = componentRef.hostView;
 
     // ViewContainerRef Add View
-    this.viewcontainer1.insert(view);
+    this.viewContainer1.insert(view);
   }
 
   /**
@@ -61,10 +62,18 @@ export class Example3Component implements AfterViewInit {
    */
   public CreateComponent2() {
     const componentFactory = this.compFactoryResolver.resolveComponentFactory(SimpleButtonComponent);
-    this.viewcontainer1.createComponent(componentFactory);
+    this.viewContainer1.createComponent(componentFactory);
   }
 
-  public Clear() {
-    this.viewcontainer1.clear();
+  public Clear(vcRef: ViewContainerRef) {
+    vcRef.clear();
+    // this.viewContainer1.clear();
+  }
+
+  public Move() {
+    while (this.viewContainer1.length > 0) {
+      const view = this.viewContainer1.detach(0);
+      this.viewContainer2.insert(view);
+    }
   }
 }
