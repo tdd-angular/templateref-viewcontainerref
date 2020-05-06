@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, ElementRef, ViewContainerRef, ComponentRef, ComponentFactoryResolver, ViewChild, Injector, TemplateRef, Renderer2 } from '@angular/core';
+import { Component, AfterViewInit, ElementRef, ViewContainerRef, ComponentRef, ComponentFactoryResolver, ViewChild, Injector, TemplateRef } from '@angular/core';
 import { SimpleButtonComponent } from '@app/example1/simple-button/simple-button.component';
 
 @Component({
@@ -10,20 +10,18 @@ export class Example3Component implements AfterViewInit {
   // TemplateRef
   @ViewChild('template1', { read: TemplateRef, static: true }) template1: TemplateRef<ElementRef>;
 
-  @ViewChild('customtemplate', { read: TemplateRef, static: true }) customtemplate: TemplateRef<ElementRef>;
-
   // ViewContainerRef
   @ViewChild('viewcontainer1', { read: ViewContainerRef, static: true }) viewcontainer1: ViewContainerRef;
 
-  constructor(private render: Renderer2, private injector: Injector, public viewContainerRef: ViewContainerRef, public hostRef: ElementRef, public compFactoryResolver: ComponentFactoryResolver) {
+  constructor(private injector: Injector, public viewContainerRef: ViewContainerRef, public hostRef: ElementRef, public compFactoryResolver: ComponentFactoryResolver) {
     console.log('#host ElementRef', hostRef);
     console.log('#host ViewContainerRef', viewContainerRef);
     console.log('#host compFactoryResolver', this.compFactoryResolver);
   }
 
   ngAfterViewInit() {
-    console.log('TemplateRef', this.template1);
-    console.log('ViewContainerRef', this.viewcontainer1);
+    console.log('  > TemplateRef', this.template1);
+    console.log('  > ViewContainerRef', this.viewcontainer1);
   }
 
   /**
