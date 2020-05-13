@@ -1,6 +1,6 @@
 # TemplateRef and ViewContainerRef
 
-> Everything start with a story... Six Ws (*Who / What / Where / When / How / Why*)
+> This repo will show you several examples about how TemplateRef, ViewContainerRef and ViewChild works.
 
 ![Angular template schema](./assets/angular_template.svg)
 
@@ -111,6 +111,8 @@ ComponentRef (https://angular.io/api/core/ComponentRef)
 - [component_factory](https://github.com/angular/angular/blob/master/packages/core/src/linker/component_factory.ts#L24)
 
 ## Interpolate template #variable
+
+*See [example4](./src/app/example4/README.md) use case.*
 
 - [ViewChild angular-dom-manipulation-techniques-using-viewcontainerref](https://indepth.dev/exploring-angular-dom-manipulation-techniques-using-viewcontainerref/#-viewchild)
 
