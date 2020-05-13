@@ -1,8 +1,8 @@
 ## ViewChild Static attribute ([link](https://angular.io/api/core/ViewChild))
 
-- If static is set to False, angular will use [ɵɵstaticViewQuery](https://github.com/angular/angular/blob/698b0288bee60b8c5926148b79b5b93f454098db/packages/core/src/render3/query.ts#L456) (Creates new QueryList for a static view query).
+- If static is set to True, angular will use [ɵɵstaticViewQuery](https://github.com/angular/angular/blob/698b0288bee60b8c5926148b79b5b93f454098db/packages/core/src/render3/query.ts#L456) (Creates new QueryList for a static view query).
 
-- If static is set to True, Angular will use [ɵɵviewQuery](https://github.com/angular/angular/blob/698b0288bee60b8c5926148b79b5b93f454098db/packages/core/src/render3/query.ts#L470) (Creates new QueryList, stores the reference in LView and returns QueryList).
+- If static is set to False, Angular will use [ɵɵviewQuery](https://github.com/angular/angular/blob/698b0288bee60b8c5926148b79b5b93f454098db/packages/core/src/render3/query.ts#L470) (Creates new QueryList, stores the reference in LView and returns QueryList).
 
 When Angular will call [ɵɵqueryRefresh](https://github.com/angular/angular/blob/698b0288bee60b8c5926148b79b5b93f454098db/packages/core/src/render3/query.ts#L431) method (*Refreshes a query by combining matches from all active views and removing matches from deleted views*) and if the query is static, it will be never refreshed after the creation of the view (improve performance), but now if the query is not static it will be refreshed each time (performance impact).
 
